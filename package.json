@@ -1,0 +1,23 @@
+{
+  "name": "cypressdryrun",
+  "version": "1.0.0",
+  "description": "Test",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^4.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martynienas/CypressAutomationDryRun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Martynienas/CypressAutomationDryRun/issues"
+  },
+  "homepage": "https://github.com/Martynienas/CypressAutomationDryRun#readme"
+}
