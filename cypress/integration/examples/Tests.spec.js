@@ -33,3 +33,10 @@ it("should seach on wikipedia", () => {
     cy.get('#search_button_homepage').click();
     cy.get(".c-base__title").contains("devbridge.com seems up")
 })
+
+it("should genereate unique password", () => {
+    cy.visit("www.duckduckgo.com")
+    cy.get('#search_form_homepage').type("is devbridge.com down")
+    cy.get('#search_button_homepage').click();
+    cy.get(".c-base__title").contains("devbridge.com seems up")
+})
