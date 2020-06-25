@@ -8,7 +8,7 @@ it("Loads the duckduckgo website", () => {
     cy.contains("Tired of being tracked online? We can help.");
 });
 
-it.only("should cintain search criteria in search results title", () => {
+it("should cintain search criteria in search results title", () => {
     cy.visit("www.duckduckgo.com")
     cy.get('#search_form_homepage').type("intitle:panda")
     homepage.getsearchButton().click();
