@@ -40,3 +40,16 @@ it("should genereate unique password", () => {
     cy.get('#search_button_homepage').click();
     cy.get(".c-base__title").contains("devbridge.com seems up")
 })
+
+describe('should generate secure passwords', () => {
+    [8, 32, 64].forEach((passwordLenght) => {
+        it('generates password with length: ' + passwordLenght, () => {
+            cy.visit("www.duckduckgo.com")
+            cy.get('#search_form_homepage').type("password " + passwordLenght)
+            cy.get('#search_button_homepage').click();
+            cy.get('.c-base__title').then(($title) => {
+                cy.get($title).invoke('text').its('length').should('be.eq', passwordLenght)
+            })
+        })
+    })
+})
