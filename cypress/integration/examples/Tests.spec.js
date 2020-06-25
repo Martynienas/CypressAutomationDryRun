@@ -65,3 +65,12 @@ describe('should ignore generating secure passwords', () => {
         })
     })
 })
+
+it.only("should launch stop watch", () => {
+    cy.visit("www.duckduckgo.com")
+    cy.get('#search_form_homepage').type("stopwatch")
+    cy.get('#search_button_homepage').click();
+    cy.get('#total_time').contains("00:00.00");
+    cy.get('.start').click();
+    cy.get('.stop').click();
+})
