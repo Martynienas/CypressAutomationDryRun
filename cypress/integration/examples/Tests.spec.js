@@ -18,3 +18,11 @@ it("should should redirect to first result", () => {
     cy.get('#search_button_homepage').click();
     cy.title().should('eq', 'Wikipedia, the free encyclopedia')
 })
+
+it("should seach on wikipedia", () => {
+    cy.visit("www.duckduckgo.com")
+    cy.get('#search_form_homepage').type("!w lithuania")
+    cy.get('#search_button_homepage').click();
+    cy.title().should('eq', 'Lithuania - Wikipedia')
+    cy.get("#firstHeading").contains("Lithuania")
+})
