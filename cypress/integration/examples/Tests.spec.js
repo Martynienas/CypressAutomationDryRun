@@ -1,14 +1,17 @@
 /// <reference types="cypress" />;
+import Homepage from '../../page_objects/homepage/homepage.js'
+
+var homepage = new Homepage;
 
 it("Loads the duckduckgo website", () => {
     cy.visit("www.duckduckgo.com")
     cy.contains("Tired of being tracked online? We can help.");
 });
 
-it("should cintain search criteria in search results title", () => {
+it.only("should cintain search criteria in search results title", () => {
     cy.visit("www.duckduckgo.com")
     cy.get('#search_form_homepage').type("intitle:panda")
-    cy.get('#search_button_homepage').click();
+    homepage.getsearchButton().click();
     cy.get('.result__title').each(($item) => { cy.get($item).contains('Panda', { matchCase: false }) })
 })
 
