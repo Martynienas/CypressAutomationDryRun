@@ -12,4 +12,9 @@ it("should cintain search criteria in search results title", () => {
     cy.get('.result__title').each(($item) => { cy.get($item).contains('Panda', { matchCase: false }) })
 })
 
-
+it("should should redirect to first result", () => {
+    cy.visit("www.duckduckgo.com")
+    cy.get('#search_form_homepage').type("!wiki")
+    cy.get('#search_button_homepage').click();
+    cy.title().should('eq', 'Wikipedia, the free encyclopedia')
+})
