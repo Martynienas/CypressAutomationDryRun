@@ -26,3 +26,10 @@ it("should seach on wikipedia", () => {
     cy.title().should('eq', 'Lithuania - Wikipedia')
     cy.get("#firstHeading").contains("Lithuania")
 })
+
+it("should seach on wikipedia", () => {
+    cy.visit("www.duckduckgo.com")
+    cy.get('#search_form_homepage').type("is devbridge.com down")
+    cy.get('#search_button_homepage').click();
+    cy.get(".c-base__title").contains("devbridge.com seems up")
+})
