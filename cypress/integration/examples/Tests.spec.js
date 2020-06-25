@@ -53,3 +53,15 @@ describe('should generate secure passwords', () => {
         })
     })
 })
+
+describe('should ignore generating secure passwords', () => {
+    [1, 7, 65, 512].forEach((event) => {
+        it('triggers event: ' + event, () => {
+
+            cy.visit("www.duckduckgo.com")
+            cy.get('#search_form_homepage').type("password " + event)
+            cy.get('#search_button_homepage').click();
+            cy.get('.c-base__title').should('not.exist');
+        })
+    })
+})
