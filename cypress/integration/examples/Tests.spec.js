@@ -66,11 +66,28 @@ describe('should ignore generating secure passwords', () => {
     })
 })
 
-it.only("should launch stop watch", () => {
+it("should launch stop watch", () => {
     cy.visit("www.duckduckgo.com")
     cy.get('#search_form_homepage').type("stopwatch")
     cy.get('#search_button_homepage').click();
     cy.get('#total_time').contains("00:00.00");
     cy.get('.start').click();
     cy.get('.stop').click();
+})
+
+const sizes = ['iphone-6', 'ipad-2', [1024, 768]]
+
+describe('Logo', () => {
+    sizes.forEach((size) => {
+        it(`Should display logo on ${size} screen`, () => {
+            if (Cypress._.isArray(size)) {
+                cy.viewport(size[0], size[1])
+            } else {
+                cy.viewport(size)
+            }
+            cy.visit("www.duckduckgo.com")
+            cy.get('#search_form_input_homepage').type("stopwatch")
+            cy.get('#search_button_homepage').click({ force: true });
+        })
+    })
 })
